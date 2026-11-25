@@ -1,0 +1,12 @@
+__pycache__/
+.env
+.env.*
+*.sqlite*
+*.pem
+*.key
+*.token
+.coverage
+.venv/
+state/
+uploads/
+fixtures/private/

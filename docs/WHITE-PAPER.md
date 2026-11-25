@@ -1,0 +1,33 @@
+# Build a Private Path to Counsel
+## A small-firm discovery portal: why we built it, how it works, and what we would defend
+
+### The problem
+
+Discovery collection demands more than a file drop. A lawyer has to work out who knows the answer, who might have the records, what the requesting party meant by a defined term, and what remains missing after the first round of answers. An email thread makes the client do that organizing. It also creates more chances to send a draft answer or a document to the wrong audience.
+
+We built a different workflow. Counsel keeps the original wording, adds separately labeled explanations, and assigns individual requests to the people who can respond. A respondent can skip around, send a candid answer, ask for clarification, or attach a supporting document without treating the entry as a final discovery response. A document custodian can say where they have looked or that they do not keep a particular record. Counsel sees what came in and decides what to ask next, what to withhold, and what to produce.
+
+### The architecture
+
+The core is deliberately simple:
+
+1. **Counsel prepares and assigns.** The case file and authentic discovery requests stay with the firm. Respondents get individual accounts and see only the requests assigned to them. A definition is highlighted when it appears, with source wording distinguished from counsel’s plain-English explanation.
+2. **The portal delivers to counsel.** It stores provisional answers and creates a receipt. It does not submit anything to the other side. It does not send questions, answers, or documents to a language model. In our design, AI can help build the software without seeing what later goes through it.
+3. **An upload is not a released document.** The original enters quarantine and is kept byte-for-byte. In the reference setup, a separate scanner returns a verdict tied to that file. The file is inaccessible through the ordinary portal until cleared. A failed or absent scan does not release it, and a cleared file is still for authorized counsel review.
+4. **Counsel reviews and controls access.** Individual accounts, scoped requests, testable revocation and an audit trail are the point. Do not forward credentials. Ask counsel for clarification inside the designated channel. Only counsel decides whether to disclose anything beyond the legal team.
+
+The companion [Azure setup guide](AZURE-SETUP.md) explains one way to divide the hosting, private storage and scanner, and what to test before handling a real matter. The downloadable starter illustrates the workflow with fictional data. It is not itself a production hosting package or a substitute for reviewing the firm's communications and vendor arrangements.
+
+### The legal position: a channel, not a source of privilege
+
+**The portal does not create privilege. The question is whether using it waives protection that applies on the facts.** A qualifying confidential communication can be protected at the time a client makes it to obtain legal advice. The portal's job is not to create that relationship but to preserve the confidentiality of the communication. That distinction matters when a request is assigned to an employee, a third-party witness, or a document custodian. Their roles are not interchangeable. Nor does sending an existing invoice to counsel make the invoice privileged, or make the underlying facts undiscoverable. [*Upjohn Co. v. United States*, 449 U.S. 383, 389–96, 399–402 (1981)](https://www.govinfo.gov/content/pkg/USREPORTS-449/pdf/USREPORTS-449-383.pdf).
+
+In [*United States v. Heppner*, 820 F. Supp. 3d 292 (S.D.N.Y. 2026), ECF No. 27 at 4–12](https://www.armfor.uscourts.gov/ConfHandout/2026ConfHandout/WMBrowningBresciaMaterialsPacket7a.pdf), the client used a consumer chatbot on his own, outside counsel’s direction. The court distinguished the new chatbot exchanges from the separate question whether repeating counsel’s advice to the service waived protection for what was disclosed. Counsel receiving a copy later did not make the original exchanges protected. The court also left room for a tool used at counsel’s direction to facilitate confidential legal communication, without deciding that any particular tool qualifies. That is the better analogy for a private path to counsel, not a defense of independently seeking advice from a model.
+
+Elizabeth X. Guo's [analysis of *Heppner*](https://harvardlawreview.org/blog/2026/03/united-states-v-heppner/) makes an important practical point: a cloud tool can carry a confidential communication without being its intended audience. But that comparison depends on what the service actually does. Counsel’s direction does not turn every helpful service into a privileged intermediary. See [*United States v. Kovel*, 296 F.2d 918, 921–23 (2d Cir. 1961)](https://law.justia.com/cases/federal/appellate-courts/F2/296/918/131265/) and [*United States v. Ackert*, 169 F.3d 136, 139–40 (2d Cir. 1999)](https://law.justia.com/cases/federal/appellate-courts/F3/169/136/491151/). Work product has its own requirements and waiver analysis; it is not another name for attorney-client privilege. [*Hickman v. Taylor*, 329 U.S. 495, 508–13 (1947)](https://www.govinfo.gov/content/pkg/USREPORTS-329/pdf/USREPORTS-329-495.pdf); [*United States v. Deloitte LLP*, 610 F.3d 129, 139–41 (D.C. Cir. 2010)](https://docs.justia.com/cases/federal/appellate-courts/cadc/09-5171/919691231).
+
+### What we would show if challenged
+
+We would identify who directed the communication, who was assigned to answer, and whose account could see it. We would show what was stored, what was transmitted, who had access, how a file was held and released, and what safeguards we verified before use. We would be candid about the host and scanner: which services are involved, their permitted uses, what the firm controls, and what could happen if the controls failed. We would not say a cloud provider is absent merely because it is not the audience, or claim that a banner, a password, or a clean scan proves confidentiality.
+
+For a qualifying communication, those are facts we are comfortable defending. They support an argument that the respondent used a private channel to speak to counsel, not that any particular court will sustain a claim of privilege. The analysis depends on the communication, the participants, the service terms, the actual configuration and use, and the law of the forum. Review those separately from the utility of the software. [ABA Formal Opinion 512, at 5–7 (2024)](https://www.americanbar.org/content/dam/aba/administrative/professional_responsibility/ethics-opinions/aba-formal-opinion-512.pdf).

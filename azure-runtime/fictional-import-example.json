@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Interrogatory No. 1",
+    "details": "Who maintained the checkout log on the day of the lantern exhibition?",
+    "kind": "question",
+    "category": "rog",
+    "definitions": [
+      {
+        "term": "checkout log",
+        "source": "Definitions ¶ 1",
+        "exact": "The paper or electronic record that identifies demonstration lanterns taken out of or returned to the observatory.",
+        "plain": "The list that shows who took a demonstration lantern out or brought it back. Paper and digital versions both count."
+      },
+      {
+        "term": "lantern exhibition",
+        "source": "Definitions ¶ 2",
+        "exact": "The display of demonstration lanterns held at the fictional observatory on the evening described in these requests.",
+        "plain": "The observatory’s lantern display on that evening, not any other event."
+      }
+    ]
+  },
+  {
+    "title": "Production No. 1",
+    "details": "Produce the checkout log.",
+    "kind": "documents",
+    "category": "rpd",
+    "definitions": [
+      {
+        "term": "checkout log",
+        "source": "Definitions ¶ 1",
+        "exact": "The paper or electronic record that identifies demonstration lanterns taken out of or returned to the observatory.",
+        "plain": "The list that shows who took a demonstration lantern out or brought it back. Paper and digital versions both count."
+      }
+    ]
+  },
+  {
+    "title": "Admission No. 1",
+    "details": "Admit that the checkout log was maintained electronically.",
+    "kind": "question",
+    "category": "rfa",
+    "definitions": [
+      {
+        "term": "checkout log",
+        "source": "Definitions ¶ 1",
+        "exact": "The paper or electronic record that identifies demonstration lanterns taken out of or returned to the observatory.",
+        "plain": "The list that shows who took a demonstration lantern out or brought it back. Paper and digital versions both count."
+      }
+    ]
+  }
+]
